@@ -71,11 +71,14 @@ app.get('/dashboard/update/:id', (req, res) => {
 })
 
 app.post('/dashboard/update/:id', (req, res) => {
+    const userId = req.params.id
     user_game_biodata.update({
         firstName:req.body.firstName,
         lastName:req.body.lastName,
         address:req.body.address,
         phone:req.body.phone
+    },{
+        where:{id: userId}
     }).then(() =>{
         res.redirect('/dashboard')
     })
