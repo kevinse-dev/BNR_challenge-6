@@ -26,8 +26,9 @@ app.post('/dashboard', async (req, res) => {
 
     if(isUser){
         res.redirect('dashboard')
+    }else{
+      res.status(401).send('gagal login')
     }
-    res.status(401).send('gagal login')
 })
 
 app.get('/dashboard', async (req, res) => {
